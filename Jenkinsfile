@@ -19,7 +19,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'depot-token', variable: 'HAB_AUTH_TOKEN')]) {
                     dir("${workspace}/project_nodejs") {
-                      habitat task: 'upload', directory: "${workspace}/habitat", authToken: env.HAB_AUTH_TOKEN
+                      habitat task: 'upload', directory: "${workspace}/project_nodejs/habitat", authToken: env.HAB_AUTH_TOKEN
                     }
                 }
             }
