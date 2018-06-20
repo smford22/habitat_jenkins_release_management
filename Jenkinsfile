@@ -11,7 +11,7 @@ pipeline {
         stage('build project_nodejs') {
             steps {
               dir("${workspace}/project_nodejs") {
-                habitat task: 'build', directory: 'habitat', origin: env.HAB_ORIGIN
+                habitat task: 'build', directory: '.', origin: env.HAB_ORIGIN
               }
             }
         }
