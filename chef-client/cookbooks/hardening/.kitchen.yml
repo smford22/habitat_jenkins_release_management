@@ -1,0 +1,24 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef
+  install_strategy: skip
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: sles11
+    driver:
+      box: chef/sles-11-sp2-x86_64
+
+suites:
+  - name: default
+    run_list:
+      - recipe[hardening::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:

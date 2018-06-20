@@ -1,0 +1,34 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  # You may wish to disable always updating cookbooks in CI or other testing environments.
+  # For example:
+  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: opensuse-leap-42.3
+
+suites:
+  - name: default
+    run_list:
+      - recipe[patching::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
+      patching:
+        timing: manual
+        patchlevel: 1
+        sles:
+          repositories:
+            packman:
+              baseurl: http://packman.inode.at
+              path: /suse/openSUSE_Leap_42.3
+              gpgcheck: false

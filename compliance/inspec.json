@@ -1,0 +1,16 @@
+{
+    "reporter": {
+        "automate" : {
+            "stdout" : false,
+            "url" : "https://ec2-18-237-34-81.us-west-2.compute.amazonaws.com/data-collector/v0/",
+            "token" : "j6rfrC-3jqT8sQXVcRtsN4H6D7s=",
+            "verify_ssl" : false
+        }
+    },
+    "compliance": {
+        "server" : "https://ec2-18-237-34-81.us-west-2.compute.amazonaws.com",
+        "token" : "j6rfrC-3jqT8sQXVcRtsN4H6D7s=",
+        "user" : "admin",
+        "insecure" : true
+    }
+}
